@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Painturillo — Juego</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <div>
+                <div id="mascaraPalabra" class="mask">_ _ _ _</div>
+                <div id="estadoJuego" class="status">Esperando que inicie la partida...</div>
+            </div>
+            <div id="temporizador" class="timer">--:--</div>
+            <div class="round">Ronda: <span id="etiquetaRonda">1/5</span></div>
+        </div>
+        <div class="game-grid">
+            <div class="card">
+                <h2>Puntajes</h2>
+                <ul id="marcador" class="players"></ul>
+            </div>
+            <div class="card">
+                <canvas id="lienzo" width="900" height="550"></canvas>
+                <div class="tools">
+                    <button data-color="#000000" class="color"></button>
+                    <button data-color="#FF0000" class="color"></button>
+                    <button data-color="#00AAFF" class="color"></button>
+                    <button data-color="#00CC66" class="color"></button>
+                    <button data-color="#FFA500" class="color"></button>
+                    <button data-color="#FFFFFF" class="color eraser" title="Borrador"></button>
+                    <label for="grosorPincel" style="margin-left: 10px;">Grosor:</label>
+                    <input type="range" id="grosorPincel" min="2" max="50" value="5" style="width: 100px;">
+                    <div id="vistaPreviaPincel"></div>
+                    <button id="btnLimpiar">Limpiar</button>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Chat</h2>
+                <div id="cajaChat" class="chat"></div>
+                <div class="row">
+                    <input id="campoChat" type="text" placeholder="Escribe..."/>
+                    <button id="btnEnviarChat">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEleccion" class="modal hidden">
+        <div class="modal-content">
+            <h3>Elige una palabra para dibujar</h3>
+            <div id="opcionesPalabra"></div>
+            <div id="temporizadorEleccion" class="timer"></div>
+        </div>
+    </div>
+
+    <div id="modalFinPartida" class="modal hidden">
+        <div class="modal-content">
+            <h3>Partida Terminada</h3>
+            <h4>Puntajes Finales:</h4>
+            <ul id="puntajesFinales" class="players"></ul>
+            <div class="row">
+                <button id="btnIrALobby">Volver al Lobby</button>
+                <button id="btnIrAInicio">Salir al Inicio</button>
+            </div>
+            <div id="temporizadorFinPartida" class="timer" style="margin-top: 15px;"></div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

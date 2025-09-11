@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Painturillo — Lobby</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Lobby de la Sala: <span id="codigoSala">CARGANDO...</span></h1>
+        <div class="lobby-layout">
+            <div class="lobby-column">
+                <div class="card">
+                    <h2>Jugadores</h2>
+                    <div class="room-settings">
+                        <div>Mín. Jugadores: <span id="minJugadores">?</span></div>
+                        <div>Máx. Jugadores: <span id="maxJugadores">?</span></div>
+                    </div>
+                    <ul id="listaJugadores" class="players"></ul>
+                    <button id="btnIniciarPartida" disabled>Esperando jugadores...</button>
+                    <button id="btnVolverInicio">Salir al Inicio</button>
+                </div>
+            </div>
+            <div class="lobby-column">
+                <div class="card">
+                    <h2>Chat</h2>
+                    <div id="cajaChat" class="chat"></div>
+                    <div class="row">
+                        <input id="campoChat" type="text" placeholder="Escribe..."/>
+                        <button id="btnEnviarChat">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="lobby.js"></script>
+</body>
+</html>

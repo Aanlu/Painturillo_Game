@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Painturillo — Inicio</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Painturillo</h1>
+        <div class="card">
+            <label>Tu nombre</label>
+            <input id="campoNombreJugador" type="text" placeholder="Ej. Mario" maxlength="16"/>
+
+            <h2>Crear sala</h2>
+            <div class="row">
+                <div>
+                    <label>Mín. jugadores</label>
+                    <input id="campoMinJugadores" type="number" min="2" max="16" value="2"/>
+                </div>
+                <div>
+                    <label>Máx. jugadores</label>
+                    <input id="campoMaxJugadores" type="number" min="2" max="16" value="8"/>
+                </div>
+            </div>
+            <button id="btnCrearSala">Crear sala</button>
+
+            <h2>Unirse a sala</h2>
+            <label>ID de sala</label>
+            <input id="campoIdSala" type="text" placeholder="Ej. ABC12" maxlength="8"/>
+            <button id="btnUnirseSala">Unirse</button>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
